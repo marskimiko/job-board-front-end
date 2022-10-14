@@ -38,7 +38,7 @@ function NewListing({ users, addNewListing}) {
           type="text"
           name="title"
           value={title}
-          
+          onChange={(e) => setTitle(e.target.value)}
         />
       </form>
     </div>
