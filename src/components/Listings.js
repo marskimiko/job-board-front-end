@@ -2,7 +2,7 @@ import React, { useEffect, useState} from "react";
 import ListingList from "./ListingList";
 import NewListing from "./NewListing";
 
-function Listings({ users }) {
+function Listings({ cats }) {
   const [listings, setListings] = useState([]);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ function Listings({ users }) {
         onUpdateListing={handleUpdateListing}
         deleteListing={deleteListing}
       />
-      <NewListing users={users} addNewListing={addNewListing}/>
+      <NewListing cats={cats} addNewListing={addNewListing}/>
     </div>
   )
 
