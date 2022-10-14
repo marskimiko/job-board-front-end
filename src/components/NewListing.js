@@ -33,13 +33,21 @@ function NewListing({ users, addNewListing}) {
       <h3>Create a new listing:</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Title:</label>
-        <input
-          id="title"
-          type="text"
-          name="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
+          <input
+            id="title"
+            type="text"
+            name="title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        <label htmlFor="body">Body:</label>
+          <input
+            id="body"
+            type="text"
+            name="body"
+            value={body}
+            onChange={(e) => setBody(e.target.value)}
+          />
       </form>
     </div>
   )
