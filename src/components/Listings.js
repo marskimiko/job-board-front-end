@@ -17,10 +17,22 @@ function Listings({ users }) {
     setListings([...listings, listing])
   }
 
+  function handleUpdateListing(updatedListing) {
+    const updatedListings = listings.map((listing) => {
+      if (listing.id === updatedListing.id) {
+        return updatedListing; 
+      } else {
+        return listing;
+      }
+    });
+    setListings(updatedListings);
+  }
+
   return (
     <div>
       <ListingList 
         listings={listings}
+        onUpdateListing={handleUpdateListing}
       />
       <NewListing users={users} addNewListing={addNewListing}/>
     </div>

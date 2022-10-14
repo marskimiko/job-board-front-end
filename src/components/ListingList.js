@@ -1,6 +1,6 @@
 import React from "react";
 
-function ListingList( {listings} ) {
+function ListingList( {listings, onUpdateListing} ) {
   return (
     <div>
       <h3>Listings:</h3>

@@ -18,8 +18,9 @@ function NewListing({ users, addNewListing}) {
     body: JSON.stringify(newList),
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    console.log(e.target.value)
+    e.preventDefault();
 
     fetch("http://localhost:9292/listings", configObj)
       .then((r) => r.json())
@@ -48,8 +49,11 @@ function NewListing({ users, addNewListing}) {
             value={body}
             onChange={(e) => setBody(e.target.value)}
           />
+        <button type="submit">Create Listing</button>
       </form>
     </div>
   )
 
 }
+
+export default NewListing;
