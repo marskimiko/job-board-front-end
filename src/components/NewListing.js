@@ -56,15 +56,16 @@ function NewListing({ cats, addNewListing }) {
         <label>
           Category:
           <select
-            placeHolder="Select a category"
+            placeholder="Select a job category"
             onChange={(e) => setCat(e.target.value)}
-          />
-            <option value="none">Select a category:</option>
+          >
+            <option value="none">Select a job category:</option>
             {cats.map((cat) => (
               <option key={cat.id} value={cat.id}>
                 {cat.job_type}
               </option>
             ))}
+          </select>
         </label>  
         <button type="submit">Create Listing</button>
       </form>
