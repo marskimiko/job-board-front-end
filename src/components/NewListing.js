@@ -22,7 +22,7 @@ function NewListing({ users, addNewListing}) {
     console.log(e.target.value)
     e.preventDefault();
 
-    fetch("http://localhost:9292/listings", configObj)
+    fetch("http://localhost:9393/listings", configObj)
       .then((r) => r.json())
       .then((listing) => {
         addNewListing(listing);
