@@ -3,10 +3,14 @@ import React, { useState } from "react";
 function NewListing({ cats, addNewListing }) {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  // const [listing, setListing] = useState("");
+  const [cat, setCat] = useState("");
 
   const newList = {
     title,
-    body
+    body,
+    cat_id: cat,
+    completed: false
   };
 
   const configObj = {
@@ -49,6 +53,19 @@ function NewListing({ cats, addNewListing }) {
             value={body}
             onChange={(e) => setBody(e.target.value)}
           />
+        <label>
+          Category:
+          <select
+            placeHolder="Select a category"
+            onChange={(e) => setCat(e.target.value)}
+          />
+            <option value="none">Select a category:</option>
+            {cats.map((cat) => (
+              <option key={cat.id} value={cat.id}>
+                {cat.job_type}
+              </option>
+            ))}
+        </label>  
         <button type="submit">Create Listing</button>
       </form>
     </div>
