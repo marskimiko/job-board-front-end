@@ -1,6 +1,8 @@
 import React, { useEffect, useState} from "react";
+import ListingList from "./ListingList";
+import NewListing from "./NewListing";
 
-function Listings() {
+function Listings({ users }) {
   const [listings, setListings] = useState([]);
 
   useEffect(() => {
@@ -11,8 +13,17 @@ function Listings() {
     });
   }, []);
 
+  const addNewListing = (listing) => {
+    setListings([...listings, listing])
+  }
+
   return (
-    <div>Hello world</div>
+    <div>
+      <ListingList 
+        listings={listings}
+      />
+      <NewListing users={users} addNewListing={addNewListing}/>
+    </div>
   )
 
   
