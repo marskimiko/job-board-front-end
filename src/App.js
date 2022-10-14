@@ -5,18 +5,18 @@ import Listings from './components/Listings'
 
 function App() {
   // const [listings, setListings] = useState([]);
-  const [users, setUsers] = useState([]);
+  const [cats, setCats] = useState([]);
   
   useEffect(() => {
-    fetch("http://localhost:9393/users")
+    fetch("http://localhost:9393/cats")
     .then((r) => r.json())
     .then((data) => {
-      setUsers(data);
+      setCats(data);
     });
   }, []);
 
   return <div>
-    <Listings users={users} />
+    <Listings cats={cats} />
   </div>
 
 }

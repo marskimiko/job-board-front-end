@@ -1,6 +1,8 @@
 import React from "react";
+import EditListing from "./EditListing"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Card } from 'react-bootstrap';
+import EditDonation from "./EditListing";
 
 function Listing({ listing, onUpdateListing, deleteListing }) {
   const { id, title, body } = listing;
@@ -20,6 +22,7 @@ function Listing({ listing, onUpdateListing, deleteListing }) {
           <Button>Edit</Button>
           <Button onClick={handleDelete}>🗑</Button>
       </div>
+      <EditListing />
     </Card>
   )
 
