@@ -28,11 +28,17 @@ function Listings({ users }) {
     setListings(updatedListings);
   }
 
+  const deleteListing = (id) => {
+    const updatedListings = listings.filter((listing) => listing.id != id);
+    setListings(updatedListings);
+  }
+
   return (
     <div>
       <ListingList 
         listings={listings}
         onUpdateListing={handleUpdateListing}
+        deleteListing={deleteListing}
       />
       <NewListing users={users} addNewListing={addNewListing}/>
     </div>

@@ -1,15 +1,16 @@
 import React from "react";
 import Listing from "./Listing";
 
-function ListingList( {listings, onUpdateListing} ) {
+function ListingList( {listings, onUpdateListing, deleteListing} ) {
   return (
     <div>
-      <h3>Listings:</h3>
+      <h1>LISTINGS:</h1>
       {listings.map((listing) => 
         <Listing
           key={listing.listing_id}
           listing={listing}
           onUpdateListing={onUpdateListing}
+          deleteListing={deleteListing}
         />
       )}
     </div>

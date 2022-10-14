@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function NewListing({ users, addNewListing}) {
+function NewListing({ addNewListing }) {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
