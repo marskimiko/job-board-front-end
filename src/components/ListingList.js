@@ -7,14 +7,14 @@ function ListingList( {listings, onUpdateListing, deleteListing} ) {
       <h1>LISTINGS:</h1>
       {listings.map((listing) => 
         <Listing
-          key={listing.listing_id}
+          key={listing.id}
           listing={listing}
           onUpdateListing={onUpdateListing}
           deleteListing={deleteListing}
         />
       )}
     </div>
-  )
+  );
 }
 
 export default ListingList;

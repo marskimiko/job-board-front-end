@@ -3,12 +3,13 @@ import React, { useState } from "react";
 function NewListing({ cats, addNewListing }) {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  // const [listing, setListing] = useState("");
+  const [user, setUser] = useState("");
   const [cat, setCat] = useState("");
 
   const newList = {
     title,
     body,
+    user,
     cat_id: cat,
     completed: false
   };
@@ -23,7 +24,6 @@ function NewListing({ cats, addNewListing }) {
   };
 
   const handleSubmit = (e) => {
-    console.log(e.target.value)
     e.preventDefault();
 
     fetch("http://localhost:9393/listings", configObj)

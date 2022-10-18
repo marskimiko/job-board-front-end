@@ -8,8 +8,8 @@ function Listings({ cats }) {
   useEffect(() => {
     fetch("http://localhost:9393/listings")
     .then((r) => r.json())
-    .then((data) => {
-      setListings(data);
+    .then((listings) => {
+      setListings(listings);
     });
   }, []);
 
@@ -29,7 +29,7 @@ function Listings({ cats }) {
   }
 
   const deleteListing = (id) => {
-    const updatedListings = listings.filter((listing) => listing.id != id);
+    const updatedListings = listings.filter((listing) => listing.id !== id);
     setListings(updatedListings);
   }
 
@@ -39,6 +39,7 @@ function Listings({ cats }) {
         listings={listings}
         onUpdateListing={handleUpdateListing}
         deleteListing={deleteListing}
+        cats={cats}
       />
       <NewListing cats={cats} addNewListing={addNewListing}/>
     </div>
