@@ -8,7 +8,6 @@ import Navigation from './components/Navigation';
 import NewListing from './components/NewListing';
 
 function App() {
-  // const [listings, setListings] = useState([]);
   const [cats, setCats] = useState([]);
   const [listings, setListings] = useState([]);
   
@@ -28,10 +27,6 @@ function App() {
     });
   }, []);
 
-  const addNewListing = (listing) => {
-    setListings([...listings, listing])
-  }
-
   return (
     <div className="App">
       <Navigation className="Navigation" />
@@ -40,12 +35,29 @@ function App() {
         <Route 
           path="/listings" 
           element=
-            {<Listings cats={cats} listings={listings} setListings={setListings}/>} 
+            {<Listings 
+              cats={cats} 
+              listings={listings} 
+              setListings={setListings}
+            />} 
         />
-        <Route path="/listings/new" element={<NewListing cats={cats} listings={listings} setListings={setListings}/>} />
+        <Route 
+          path="/listings/new" 
+          element=
+            {<NewListing 
+              cats={cats} 
+              listings={listings} 
+              setListings={setListings}
+            />} 
+        />
       </Routes>
     </div>
-    // <Router>
+  )
+}
+
+export default App;
+
+  // <Router>
     //   <Navigation />
     //   <div className="App">
     //     <Routes>
@@ -54,8 +66,3 @@ function App() {
     //     </Routes>
     //   </div>
     //   </Router>
-  )
-
-}
-
-export default App;

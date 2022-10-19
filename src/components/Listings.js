@@ -3,19 +3,6 @@ import ListingList from "./ListingList";
 import NewListing from "./NewListing";
 
 function Listings({ cats, listings, setListings }) {
-  // const [listings, setListings] = useState([]);
-
-  // useEffect(() => {
-  //   fetch("http://localhost:9393/listings")
-  //   .then((r) => r.json())
-  //   .then((listings) => {
-  //     setListings(listings);
-  //   });
-  // }, []);
-
-  // const addNewListing = (listing) => {
-  //   setListings([...listings, listing])
-  // }
 
   function handleUpdateListing(updatedListing) {
     const updatedListings = listings.map((listing) => {
