@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom'
 
 function NewListing({ cats, addNewListing }) {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [user, setUser] = useState("");
   const [cat, setCat] = useState("");
+
+  const navigate = useNavigate()
 
   const newList = {
     title,
@@ -30,6 +33,7 @@ function NewListing({ cats, addNewListing }) {
       .then((r) => r.json())
       .then((listing) => {
         addNewListing(listing);
+        navigate.push(`/listings`)
       });
   };
 
