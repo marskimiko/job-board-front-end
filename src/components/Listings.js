@@ -2,16 +2,16 @@ import React, { useEffect, useState} from "react";
 import ListingList from "./ListingList";
 import NewListing from "./NewListing";
 
-function Listings({ cats }) {
-  const [listings, setListings] = useState([]);
+function Listings({ cats, listings, setListings }) {
+  // const [listings, setListings] = useState([]);
 
-  useEffect(() => {
-    fetch("http://localhost:9393/listings")
-    .then((r) => r.json())
-    .then((listings) => {
-      setListings(listings);
-    });
-  }, []);
+  // useEffect(() => {
+  //   fetch("http://localhost:9393/listings")
+  //   .then((r) => r.json())
+  //   .then((listings) => {
+  //     setListings(listings);
+  //   });
+  // }, []);
 
   const addNewListing = (listing) => {
     setListings([...listings, listing])
@@ -35,13 +35,13 @@ function Listings({ cats }) {
 
   return (
     <div>
+      <NewListing cats={cats} addNewListing={addNewListing}/>
       <ListingList 
         listings={listings}
         onUpdateListing={handleUpdateListing}
         deleteListing={deleteListing}
         cats={cats}
       />
-      {/* <NewListing cats={cats} addNewListing={addNewListing}/> */}
     </div>
   )
 

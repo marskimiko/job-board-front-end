@@ -10,7 +10,7 @@ import NewListing from './components/NewListing';
 function App() {
   // const [listings, setListings] = useState([]);
   const [cats, setCats] = useState([]);
-  // const [listings, setListings] = useState([]);
+  const [listings, setListings] = useState([]);
   
   useEffect(() => {
     fetch("http://localhost:9393/cats")
@@ -20,13 +20,13 @@ function App() {
     });
   }, []);
 
-  // useEffect(() => {
-  //   fetch("http://localhost:9393/listings")
-  //   .then((r) => r.json())
-  //   .then((listings) => {
-  //     setListings(listings);
-  //   });
-  // }, []);
+  useEffect(() => {
+    fetch("http://localhost:9393/listings")
+    .then((r) => r.json())
+    .then((listings) => {
+      setListings(listings);
+    });
+  }, []);
 
   // const addNewListing = (listing) => {
   //   setListings([...listings, listing])
@@ -39,9 +39,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route 
           path="/listings" 
-          element={<Listings 
-            cats={cats} 
-          />} />
+          element=
+            {<Listings cats={cats} listings={listings} setListings={setListings}/>} 
+        />
         <Route path="/listings/new" element={<NewListing cats={cats}/>} />
       </Routes>
     </div>
