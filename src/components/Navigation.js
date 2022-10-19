@@ -17,7 +17,7 @@ function Navigation() {
         to="/"
         exact
         style={link}
-        activeStyle={{
+        activestyle={{
           background: 'darkblue'
         }}
       >Home</NavLink>
@@ -26,7 +26,7 @@ function Navigation() {
         to="/listings"
         exact
         style={link}
-        activeStyle={{
+        activestyle={{
           background: 'darkblue'
         }}
       >Listings</NavLink>
@@ -35,7 +35,7 @@ function Navigation() {
         to="/listings/new"
         exact
         style={link}
-        activeStyle={{
+        activestyle={{
           background: 'darkblue'
         }}
       >Create New Listing</NavLink>

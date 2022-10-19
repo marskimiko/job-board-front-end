@@ -3,8 +3,10 @@ import ListingList from "./ListingList";
 import Filter from "./Filter";
 
 function Listings({ cats, setCats, listings, setListings }) {
+  const [filterBy, setFilterBy] = useState("")
 
-  function handleUpdateListing(updatedListing) {
+
+  function onUpdateListing(updatedListing) {
     const updatedListings = listings.map((listing) => {
       if (listing.id === updatedListing.id) {
         return updatedListing; 
@@ -20,15 +22,27 @@ function Listings({ cats, setCats, listings, setListings }) {
     setListings(updatedListings);
   }
 
+  // const filteredListings = listings.filter(
+  //   (listing) => listing.cat.job_type === filterBy
+  // );
+
+  const filteredListings = () => {
+    listings.filter(
+      (listing) => listing.cat.job_type === filterBy
+    )
+  }
+
   return (
     <div>
       <Filter 
         cats={cats}
-        setCats={setCats}
+        filterBy={filterBy}
+        setFilterBy={setFilterBy}
       />
       <ListingList 
+        // listings={listings}
         listings={listings}
-        onUpdateListing={handleUpdateListing}
+        onUpdateListing={onUpdateListing}
         deleteListing={deleteListing}
         cats={cats}
       />

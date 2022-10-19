@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Card } from 'react-bootstrap';
 
 function Listing({ listing, onUpdateListing, deleteListing }) {
-  const { id, title, body, cat_id } = listing;
+  const { id, title, body } = listing;
   const [isEdit, setIsEdit] = useState(false);
 
   const handleUpdateListing = (updatedListing) => {
@@ -31,17 +31,18 @@ function Listing({ listing, onUpdateListing, deleteListing }) {
         />
       ) : (
         <li style={{ listStyleType: "none" }}>
-          <p>
+          <div>
             <strong>{title}</strong>
             <p>{body}</p> 
             <p>Category: {listing.cat.job_type}</p>
             <Button 
-              onClick={() => setIsEdit((isEdit) => !isEdit)} 
-              class="btn btn-outline-dark"
+              onClick={() => setIsEdit((isEdit) => !isEdit)}
+              type="button" 
+              variant="outline-dark"
               >Edit
             </Button>
-            <Button onClick={handleDelete} class="btn btn-outline-dark">🗑</Button>
-          </p>
+            <Button onClick={handleDelete} variant="outline-dark">🗑</Button>
+          </div>
         </li>
       )}
     </div>

@@ -2,17 +2,21 @@ import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { useNavigate } from 'react-router-dom';
 
 function EditListing({ listing, handleUpdateListing}) {
-  const { id, title, body, cat_id } = listing;
+  const { id, title, body } = listing;
+
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     title: title,
     body: body,
-    cat_id: cat_id
+    id: id
   });
 
   function handleEditListing(e) {
+    console.log("save:", e)
     e.preventDefault();
 
     fetch(`http://localhost:9393/listings/${id}`, {
@@ -24,7 +28,8 @@ function EditListing({ listing, handleUpdateListing}) {
    })
     .then ((response) => response.json())
     .then((updatedListing) => {
-      handleUpdateListing(updatedListing)
+      handleUpdateListing(updatedListing);
+      navigate("/listings");
     });
   }
 
@@ -49,7 +54,7 @@ function EditListing({ listing, handleUpdateListing}) {
         value={formData.body}
         onChange={handleChange}
       />
-      <Button variant="primary" type="submit">
+      <Button variant="success" type="submit">
         Save
       </Button>
     </Form>
