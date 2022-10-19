@@ -3,11 +3,11 @@ import { NavLink } from 'react-router-dom';
 
 const link = {
   width: '100px',
-  padding: '12px',
-  margin: '0 6px 6px',
+  padding: '1px',
+  margin: '0 60px 50px',
   textDecoration: 'none',
   color: 'white',
-  backgroundColor: 'blue'
+  backgroundColor: 'black'
 }
 
 function Navigation() {
