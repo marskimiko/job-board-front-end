@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 
-function NewListing({ cats, addNewListing }) {
+function NewListing({ cats, listings, setListings }) {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [user, setUser] = useState("");
@@ -36,6 +36,10 @@ function NewListing({ cats, addNewListing }) {
         navigate.push(`/listings`)
       });
   };
+
+  const addNewListing = (listing) => {
+    setListings([...listings, listing])
+  }
 
   return (
     <div>

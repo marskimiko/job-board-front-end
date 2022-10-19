@@ -28,9 +28,9 @@ function App() {
     });
   }, []);
 
-  // const addNewListing = (listing) => {
-  //   setListings([...listings, listing])
-  // }
+  const addNewListing = (listing) => {
+    setListings([...listings, listing])
+  }
 
   return (
     <div className="App">
@@ -42,7 +42,7 @@ function App() {
           element=
             {<Listings cats={cats} listings={listings} setListings={setListings}/>} 
         />
-        <Route path="/listings/new" element={<NewListing cats={cats}/>} />
+        <Route path="/listings/new" element={<NewListing cats={cats} listings={listings} setListings={setListings}/>} />
       </Routes>
     </div>
     // <Router>

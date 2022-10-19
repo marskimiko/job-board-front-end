@@ -13,9 +13,9 @@ function Listings({ cats, listings, setListings }) {
   //   });
   // }, []);
 
-  const addNewListing = (listing) => {
-    setListings([...listings, listing])
-  }
+  // const addNewListing = (listing) => {
+  //   setListings([...listings, listing])
+  // }
 
   function handleUpdateListing(updatedListing) {
     const updatedListings = listings.map((listing) => {
@@ -35,7 +35,7 @@ function Listings({ cats, listings, setListings }) {
 
   return (
     <div>
-      <NewListing cats={cats} addNewListing={addNewListing}/>
+      <NewListing cats={cats}/>
       <ListingList 
         listings={listings}
         onUpdateListing={handleUpdateListing}
