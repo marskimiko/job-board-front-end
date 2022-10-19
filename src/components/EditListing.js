@@ -9,7 +9,7 @@ function EditListing({ listing, handleUpdateListing}) {
   function handleEditListing(e) {
     e.preventDefault();
 
-    fetch(`http://localhost:9393/listings/${id}/edit`, {
+    fetch(`http://localhost:9393/listings/${id}`, {
     method: "PATCH",
     headers: { 
       'Content-Type': 'application/json',
@@ -17,7 +17,9 @@ function EditListing({ listing, handleUpdateListing}) {
     body: JSON.stringify({ title: updatedTitle, body: updatedBody }),
    })
     .then ((response) => response.json())
-    .then((updatedListing) => handleEditListing(updatedListing));
+    .then((updatedListing) => {
+      handleEditListing(updatedListing)
+    });
   }
   
   return (

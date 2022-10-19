@@ -19,7 +19,28 @@ function Listing({ listing, onUpdateListing, deleteListing }) {
     });
   };
 
-  
+  return (
+    <Card>
+      <div>
+      {isEdit ? (
+        <EditListing
+          listing={listing}
+          handleUpdateListing={handleUpdateListing}
+        />
+      ) : (
+        <li style={{ listStyleType: "none" }}>
+          <p>
+            title: {title} - body: {body} Category: {cat_id}
+            <Button onClick={() => setIsEdit((isEdit) => !isEdit)}>
+              Edit
+            </Button>
+            <Button onClick={handleDelete}>🗑</Button>
+          </p>
+        </li>
+      )}
+    </div>
+    </Card>
+  );
 
   // return (
   //   <Card>
