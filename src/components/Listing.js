@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import EditListing from "./EditListing"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Card } from 'react-bootstrap';
 
 function Listing({ listing, onUpdateListing, deleteListing }) {
   const { id, title, body, cat_id } = listing;
+  const [isEdit, setIsEdit] = useState(false);
+
+  const handleUpdateListing = (updatedListing) => {
+    setIsEdit(false);
+    onUpdateListing(updatedListing);
+  }
 
   const handleDelete = () => {
     deleteListing(id);
@@ -13,18 +19,23 @@ function Listing({ listing, onUpdateListing, deleteListing }) {
     });
   };
 
-  return (
-    <Card>
-      <div>
-        <h2>{title}</h2>
-        <h3>{body}</h3>
-        <h3>{cat_id}</h3>
-          <Button>Edit</Button>
-          <Button onClick={handleDelete}>🗑</Button>
-      </div>
-      <EditListing />
-    </Card>
-  )
+  
+
+  // return (
+  //   <Card>
+  //     <div>
+  //       <h2>{title}</h2>
+  //       <h3>{body}</h3>
+  //       <h3>{cat_id}</h3>
+  //         <Button>Edit</Button>
+  //         <Button onClick={handleDelete}>🗑</Button>
+  //     </div>
+  //     <EditListing
+  //       listing={listing} 
+  //       handleUpdateListing={handleUpdateListing}
+  //     />
+  //   </Card>
+  // )
 
 }
 

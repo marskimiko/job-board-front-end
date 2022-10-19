@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom'
+import { redirect } from 'react-router-dom'
 
 function NewListing({ cats, listings, setListings }) {
   const [title, setTitle] = useState("");
@@ -7,7 +7,6 @@ function NewListing({ cats, listings, setListings }) {
   const [user, setUser] = useState("");
   const [cat, setCat] = useState("");
 
-  const navigate = useNavigate()
 
   const newList = {
     title,
@@ -33,7 +32,7 @@ function NewListing({ cats, listings, setListings }) {
       .then((r) => r.json())
       .then((listing) => {
         addNewListing(listing);
-        navigate.push(`/listings`)
+        redirect("/listings");
       });
   };
 
