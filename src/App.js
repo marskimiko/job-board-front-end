@@ -6,6 +6,7 @@ import Listings from './components/Listings'
 import Home from './components/Home';
 import Navigation from './components/Navigation';
 import NewListing from './components/NewListing';
+import logo from './images/logo-no-background.png'
 
 function App() {
   const [cats, setCats] = useState([]);
@@ -29,6 +30,7 @@ function App() {
 
   return (
     <div className="App">
+      <img src={logo} alt="Logo" witdth="100" height="100" padding="100"/>
       <Navigation className="Navigation" />
       <Routes>
         <Route path="/" element={<Home />} />
