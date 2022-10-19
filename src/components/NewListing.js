@@ -26,7 +26,7 @@ function NewListing({ cats, addNewListing }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:9393/listings", configObj)
+    fetch("http://localhost:9393/listings/new", configObj)
       .then((r) => r.json())
       .then((listing) => {
         addNewListing(listing);

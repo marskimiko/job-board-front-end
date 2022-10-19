@@ -30,8 +30,17 @@ function Navigation() {
           background: 'darkblue'
         }}
       >Listings</NavLink>
+
+      <NavLink
+        to="/listings/new"
+        exact
+        style={link}
+        activeStyle={{
+          background: 'darkblue'
+        }}
+      >Create New Listing</NavLink>
     </div>
   )
 }
-
+ 
 export default Navigation;

@@ -41,7 +41,7 @@ function Listings({ cats }) {
         deleteListing={deleteListing}
         cats={cats}
       />
-      <NewListing cats={cats} addNewListing={addNewListing}/>
+      {/* <NewListing cats={cats} addNewListing={addNewListing}/> */}
     </div>
   )
 
