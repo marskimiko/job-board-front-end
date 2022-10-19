@@ -42,22 +42,6 @@ function Listing({ listing, onUpdateListing, deleteListing }) {
     </Card>
   );
 
-  // return (
-  //   <Card>
-  //     <div>
-  //       <h2>{title}</h2>
-  //       <h3>{body}</h3>
-  //       <h3>{cat_id}</h3>
-  //         <Button>Edit</Button>
-  //         <Button onClick={handleDelete}>🗑</Button>
-  //     </div>
-  //     <EditListing
-  //       listing={listing} 
-  //       handleUpdateListing={handleUpdateListing}
-  //     />
-  //   </Card>
-  // )
-
 }
 
 export default Listing;
