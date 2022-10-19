@@ -1,6 +1,5 @@
 import React, { useEffect, useState} from "react";
 import ListingList from "./ListingList";
-import NewListing from "./NewListing";
 
 function Listings({ cats, listings, setListings }) {
 
@@ -22,7 +21,6 @@ function Listings({ cats, listings, setListings }) {
 
   return (
     <div>
-      <NewListing cats={cats}/>
       <ListingList 
         listings={listings}
         onUpdateListing={handleUpdateListing}
