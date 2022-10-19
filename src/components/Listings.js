@@ -1,7 +1,8 @@
 import React, { useEffect, useState} from "react";
 import ListingList from "./ListingList";
+import Filter from "./Filter";
 
-function Listings({ cats, listings, setListings }) {
+function Listings({ cats, setCats, listings, setListings }) {
 
   function handleUpdateListing(updatedListing) {
     const updatedListings = listings.map((listing) => {
@@ -21,6 +22,10 @@ function Listings({ cats, listings, setListings }) {
 
   return (
     <div>
+      <Filter 
+        cats={cats}
+        setCats={setCats}
+      />
       <ListingList 
         listings={listings}
         onUpdateListing={handleUpdateListing}

@@ -39,6 +39,7 @@ function App() {
           element=
             {<Listings 
               cats={cats} 
+              setCats={setCats}
               listings={listings} 
               setListings={setListings}
             />} 

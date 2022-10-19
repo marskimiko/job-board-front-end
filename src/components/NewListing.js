@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { redirect } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 function NewListing({ cats, listings, setListings }) {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [user, setUser] = useState("");
   const [cat, setCat] = useState("");
+
+  const navigate = useNavigate();
 
 
   const newList = {
@@ -31,8 +33,9 @@ function NewListing({ cats, listings, setListings }) {
     fetch("http://localhost:9393/listings/new", configObj)
       .then((r) => r.json())
       .then((listing) => {
+        console.log('submitt')
         addNewListing(listing);
-        redirect("/listings");
+        navigate("/listings");
       });
   };
 
@@ -53,13 +56,13 @@ function NewListing({ cats, listings, setListings }) {
             onChange={(e) => setTitle(e.target.value)}
           />
         <label htmlFor="body">Body:</label>
-          <input
+          <textarea
             id="body"
             type="text"
             name="body"
             value={body}
             onChange={(e) => setBody(e.target.value)}
-          />
+          ></textarea>
         <label>
           Category:
           <select

@@ -19,6 +19,8 @@ function Listing({ listing, onUpdateListing, deleteListing }) {
     });
   };
 
+  console.log(listing.cat.job_type)
+
   return (
     <Card>
       <div>
@@ -30,11 +32,15 @@ function Listing({ listing, onUpdateListing, deleteListing }) {
       ) : (
         <li style={{ listStyleType: "none" }}>
           <p>
-            title: {title} - body: {body} Category: {cat_id}
-            <Button onClick={() => setIsEdit((isEdit) => !isEdit)}>
-              Edit
+            <strong>{title}</strong>
+            <p>{body}</p> 
+            <p>Category: {listing.cat.job_type}</p>
+            <Button 
+              onClick={() => setIsEdit((isEdit) => !isEdit)} 
+              class="btn btn-outline-dark"
+              >Edit
             </Button>
-            <Button onClick={handleDelete}>🗑</Button>
+            <Button onClick={handleDelete} class="btn btn-outline-dark">🗑</Button>
           </p>
         </li>
       )}

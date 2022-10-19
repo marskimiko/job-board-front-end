@@ -8,7 +8,8 @@ function EditListing({ listing, handleUpdateListing}) {
 
   const [formData, setFormData] = useState({
     title: title,
-    body: body
+    body: body,
+    cat_id: cat_id
   });
 
   function handleEditListing(e) {
