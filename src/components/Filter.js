@@ -4,15 +4,7 @@ const Filter = ({ cats, filterBy, setFilterBy }) => {
 
   function handleFilterChange(e) {
     setFilterBy(e.target.value)
-    // console.log(e.target.value)
   }
-
-  // const filteredListings = () => {
-  //   if (!selectedCategory) {
-  //     return listings;
-  //   }
-  //   return listings.filter((listing) => listing.cat.job_type === selectedCategory);
-  // }
 
   return (
     <div className="filter-container">

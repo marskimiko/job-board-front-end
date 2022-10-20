@@ -1,9 +1,11 @@
 import React, { useEffect, useState} from "react";
 import ListingList from "./ListingList";
 import Filter from "./Filter";
+import Listing from "./Listing";
 
 function Listings({ cats, setCats, listings, setListings }) {
   const [filterBy, setFilterBy] = useState("")
+  const [filteredListings, setFilteredListings] = useState(listings);
 
 
   function onUpdateListing(updatedListing) {
@@ -22,15 +24,19 @@ function Listings({ cats, setCats, listings, setListings }) {
     setListings(updatedListings);
   }
 
-  // const filteredListings = listings.filter(
-  //   (listing) => listing.cat.job_type === filterBy
-  // );
 
-  const filteredListings = () => {
-    listings.filter(
-      (listing) => listing.cat.job_type === filterBy
-    )
-  }
+  useEffect(() => {
+    let results = [];
+    if (filterBy === 'none' || filterBy === '') {
+      results = listings
+    } else {
+      results = listings.filter(
+        (listing) => listing.cat.job_type === filterBy
+      )
+    }
+    setFilteredListings(results)
+  }, [filterBy, listings])
+
 
   return (
     <div>
@@ -39,13 +45,20 @@ function Listings({ cats, setCats, listings, setListings }) {
         filterBy={filterBy}
         setFilterBy={setFilterBy}
       />
-      <ListingList 
-        // listings={listings}
-        listings={listings}
+      {/* <ListingList 
+        listings={filteredListings}
         onUpdateListing={onUpdateListing}
         deleteListing={deleteListing}
-        cats={cats}
-      />
+      /> */}
+      <h1>LISTINGS:</h1>
+      {filteredListings.map((listing) => 
+        <Listing
+          key={listing.id}
+          listing={listing}
+          onUpdateListing={onUpdateListing}
+          deleteListing={deleteListing}
+        />
+      )}
     </div>
   )
 

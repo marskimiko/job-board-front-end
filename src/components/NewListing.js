@@ -33,7 +33,6 @@ function NewListing({ cats, listings, setListings }) {
     fetch("http://localhost:9393/listings/new", configObj)
       .then((r) => r.json())
       .then((listing) => {
-        console.log('submitt')
         addNewListing(listing);
         navigate("/listings");
       });

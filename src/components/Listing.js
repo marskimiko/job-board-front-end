@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import EditListing from "./EditListing"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Card } from 'react-bootstrap';
@@ -19,7 +19,9 @@ function Listing({ listing, onUpdateListing, deleteListing }) {
     });
   };
 
-  console.log(listing.cat.job_type)
+  useEffect(() => {
+  }, [listing])
+
 
   return (
     <Card>
@@ -34,7 +36,7 @@ function Listing({ listing, onUpdateListing, deleteListing }) {
           <div>
             <strong>{title}</strong>
             <p>{body}</p> 
-            <p>Category: {listing.cat.job_type}</p>
+            {listing.cat && listing.cat.job_type? <p>Category: {listing.cat.job_type}</p>:<p>False</p>}
             <Button 
               onClick={() => setIsEdit((isEdit) => !isEdit)}
               type="button" 
