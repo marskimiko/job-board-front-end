@@ -68,7 +68,7 @@ function App() {
             />} 
         />
         <Route
-          path="/cats/mew"
+          path="/cats/new"
           element=
           {<NewCategory
             cats={cats}
