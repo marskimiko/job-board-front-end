@@ -8,6 +8,22 @@ function NewListing({ cats, listings, setListings }) {
   const [cat, setCat] = useState("");
 
   const navigate = useNavigate();
+ 
+  const styles = {
+    img: {
+      height: '210px',
+      width: '210px',
+    },
+    form: { 
+      backgroundColor: '',
+      maxWidth: "420px",
+      margin: "50px auto",
+      padding: "0px",
+      borderSize: "border box",
+      alignItems: "center",
+      justifyContent: "center"
+    }
+  }
 
 
   const newList = {
@@ -44,8 +60,8 @@ function NewListing({ cats, listings, setListings }) {
 
   return (
     <div>
-      <h3>Create a new listing:</h3>
-      <form onSubmit={handleSubmit}>
+      <h3 style={styles.form}>Create a new listing:</h3>
+      <form onSubmit={handleSubmit} style={styles.form}>
         <label htmlFor="title">Title:</label>
           <input
             id="title"

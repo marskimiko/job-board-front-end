@@ -11,6 +11,7 @@ import logo from './images/logo-no-background.png'
 function App() {
   const [cats, setCats] = useState([]);
   const [listings, setListings] = useState([]);
+
   
   useEffect(() => {
     fetch("http://localhost:9393/cats")

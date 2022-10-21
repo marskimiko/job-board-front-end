@@ -1,11 +1,23 @@
 import React, { useEffect, useState} from "react";
-import ListingList from "./ListingList";
 import Filter from "./Filter";
 import Listing from "./Listing";
 
 function Listings({ cats, setCats, listings, setListings }) {
   const [filterBy, setFilterBy] = useState("")
   const [filteredListings, setFilteredListings] = useState(listings);
+
+  // const styles = {
+  //   main: {
+  //     paddingTop: "100px",
+  //     paddingBottom: "100px",
+  //     display: "flex",
+  //     flexDirection: "row",
+  //     flexWrap: "wrap",
+  //     justifyContent: "space-evenly",
+  //     alignItems: "center",
+  //     alignContent: "center"
+  //   }
+  // }
 
 
   function onUpdateListing(updatedListing) {
@@ -45,11 +57,6 @@ function Listings({ cats, setCats, listings, setListings }) {
         filterBy={filterBy}
         setFilterBy={setFilterBy}
       />
-      {/* <ListingList 
-        listings={filteredListings}
-        onUpdateListing={onUpdateListing}
-        deleteListing={deleteListing}
-      /> */}
       <h1>LISTINGS:</h1>
       {filteredListings.map((listing) => 
         <Listing
