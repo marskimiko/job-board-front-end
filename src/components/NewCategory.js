@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 
 function NewCategory({ cats }) { 
   const [jobType, setJobType] = useState("");
-  
-  const newCategory = { jobType }
-  const navigate = useNavigate();
+
+  let newCategory = {jobType}
 
   const configObj = {
     method: "POST",
@@ -27,7 +25,6 @@ function NewCategory({ cats }) {
       .then((r) => r.json())
       .then((cat) => {
         addNewCategory(cat);
-        navigate("/listings");
       });
   };
 
@@ -42,9 +39,9 @@ function NewCategory({ cats }) {
         <Form.Group>
           <Form.Label>Add a new job category:</Form.Label>
             <Form.Control
-            id="job-type" 
+            id="jobType" 
             type="text" 
-            name="job-type" 
+            name="jobType" 
             value={jobType}
             onChange={(e) => setJobType(e.target.value)}
             />

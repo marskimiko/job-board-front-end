@@ -1,35 +1,33 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
+// import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 
-const link = {
-  width: '100px',
-  padding: '1px',
-  margin: '0 20px 50px',
-  textDecoration: 'none',
-  color: 'white',
-  backgroundColor: 'black'
-}
+
 
 function Navigation() {
   return (
     <div>
-      <NavLink
-        to="/"
+      <Navbar expand="lg" className="nav nav-pills nav-justified bg-light">
+      <Nav.Link
+        href="/"
         exact
-        style={link}
-      >Home</NavLink>
+        style={{color: 'black'}}
+      >Home</Nav.Link>
 
-      <NavLink
-        to="/listings"
+      <Nav.Link
+        href="/listings"
         exact
-        style={link}
-      >Listings</NavLink>
+        style={{color: 'black'}}
+      >Listings</Nav.Link>
 
-      <NavLink
-        to="/listings/new"
+      <Nav.Link
+        href="/listings/new"
         exact
-        style={link}
-      >Create New Listing</NavLink>
+        style={{color: 'black'}}
+      >New Listing</Nav.Link>
+      </Navbar>
     </div>
   )
 }
