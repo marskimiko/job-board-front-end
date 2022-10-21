@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const link = {
   width: '100px',
   padding: '1px',
-  margin: '0 60px 50px',
+  margin: '0 20px 50px',
   textDecoration: 'none',
   color: 'white',
   backgroundColor: 'black'
@@ -17,28 +17,25 @@ function Navigation() {
         to="/"
         exact
         style={link}
-        activestyle={{
-          background: 'darkblue'
-        }}
       >Home</NavLink>
 
       <NavLink
         to="/listings"
         exact
         style={link}
-        activestyle={{
-          background: 'darkblue'
-        }}
       >Listings</NavLink>
 
       <NavLink
         to="/listings/new"
         exact
         style={link}
-        activestyle={{
-          background: 'darkblue'
-        }}
       >Create New Listing</NavLink>
+      
+      <NavLink
+        to="/cats/new"
+        exact
+        style={link}
+      >New Category</NavLink>
     </div>
   )
 }
