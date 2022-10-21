@@ -36,7 +36,7 @@ function Listings({ cats, setCats, listings, setListings }) {
     setListings(updatedListings);
   }
 
-
+  // needs to happen on the backend not front end
   useEffect(() => {
     let results = [];
     if (filterBy === 'none' || filterBy === '') {

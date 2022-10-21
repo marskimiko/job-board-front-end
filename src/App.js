@@ -2,16 +2,29 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import logo from './images/logo-no-background.png'
 import Listings from './components/Listings'
 import Home from './components/Home';
 import Navigation from './components/Navigation';
 import NewListing from './components/NewListing';
-import logo from './images/logo-no-background.png'
+import NewCategory from './components/NewCategory'
 
 function App() {
   const [cats, setCats] = useState([]);
   const [listings, setListings] = useState([]);
 
+  const styles = {
+    main: {
+      paddingTop: "100px",
+      paddingBottom: "100px",
+      display: "flex",
+      flexDirection: "row",
+      flexWrap: "wrap",
+      justifyContent: "space-evenly",
+      alignItems: "center",
+      alignContent: "center"
+    }
+  }
   
   useEffect(() => {
     fetch("http://localhost:9393/cats")
@@ -53,6 +66,13 @@ function App() {
               listings={listings} 
               setListings={setListings}
             />} 
+        />
+        <Route
+          path="/cats/mew"
+          element=
+          {<NewCategory
+            cats={cats}
+          />}
         />
       </Routes>
     </div>

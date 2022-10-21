@@ -39,7 +39,7 @@ function Listing({ listing, onUpdateListing, deleteListing }) {
 
 
   return (
-    <Card className="card bg-light mb-3" style={styles.main}>
+    <Card className="card text-white bg-dark mb-3" style={styles.main}>
       <Card.Header as="h5">{title}</Card.Header>
       {isEdit ? (
         <EditListing
