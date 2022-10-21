@@ -30,12 +30,6 @@ function Navigation() {
         exact
         style={link}
       >Create New Listing</NavLink>
-      
-      <NavLink
-        to="/cats/new"
-        exact
-        style={link}
-      >New Category</NavLink>
     </div>
   )
 }

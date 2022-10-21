@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import EditListing from "./EditListing"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Card, ListGroup } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 
 function Listing({ listing, onUpdateListing, deleteListing }) {
 

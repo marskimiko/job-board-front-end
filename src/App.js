@@ -7,7 +7,6 @@ import Listings from './components/Listings'
 import Home from './components/Home';
 import Navigation from './components/Navigation';
 import NewListing from './components/NewListing';
-import NewCategory from './components/NewCategory'
 
 function App() {
   const [cats, setCats] = useState([]);
@@ -67,13 +66,13 @@ function App() {
               setListings={setListings}
             />} 
         />
-        <Route
+        {/* <Route
           path="/cats/new"
           element=
           {<NewCategory
             cats={cats}
           />}
-        />
+        /> */}
       </Routes>
     </div>
   )

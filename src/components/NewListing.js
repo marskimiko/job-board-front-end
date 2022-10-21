@@ -43,11 +43,6 @@ function NewListing({ cats, listings, setListings }) {
     body: JSON.stringify(newList),
   };
 
-  const addNewListing = (listing) => {
-    setListings([...listings, listing])
-  }
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -58,6 +53,10 @@ function NewListing({ cats, listings, setListings }) {
         navigate("/listings");
       });
   };
+
+  const addNewListing = (listing) => {
+    setListings([...listings, listing])
+  }
 
   return (
     <div>

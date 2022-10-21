@@ -1,23 +1,24 @@
 import React, { useEffect, useState} from "react";
 import Filter from "./Filter";
 import Listing from "./Listing";
+import NewCategory from './NewCategory'
 
 function Listings({ cats, setCats, listings, setListings }) {
   const [filterBy, setFilterBy] = useState("")
   const [filteredListings, setFilteredListings] = useState(listings);
 
-  // const styles = {
-  //   main: {
-  //     paddingTop: "100px",
-  //     paddingBottom: "100px",
-  //     display: "flex",
-  //     flexDirection: "row",
-  //     flexWrap: "wrap",
-  //     justifyContent: "space-evenly",
-  //     alignItems: "center",
-  //     alignContent: "center"
-  //   }
-  // }
+  const styles = {
+    main: {
+      paddingTop: "50px",
+      paddingBottom: "50px",
+      display: "flex",
+      flexDirection: "row",
+      flexWrap: "wrap",
+      justifyContent: "space-evenly",
+      alignItems: "center",
+      alignContent: "center"
+    }
+  }
 
 
   function onUpdateListing(updatedListing) {
@@ -57,7 +58,8 @@ function Listings({ cats, setCats, listings, setListings }) {
         filterBy={filterBy}
         setFilterBy={setFilterBy}
       />
-      <h1>LISTINGS:</h1>
+      <NewCategory cats={cats} />
+      <div style={styles.main}>
       {filteredListings.map((listing) => 
         <Listing
           key={listing.id}
@@ -66,6 +68,7 @@ function Listings({ cats, setCats, listings, setListings }) {
           deleteListing={deleteListing}
         />
       )}
+      </div>
     </div>
   )
 

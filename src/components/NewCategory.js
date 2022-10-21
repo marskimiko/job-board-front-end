@@ -19,23 +19,25 @@ function NewCategory({ cats }) {
     body: JSON.stringify(newCategory),
   };
 
-  const addNewCategory = (cat) => {
-    setJobType([...cats, cat])
-  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     fetch("http://localhost:9393/cats/new", configObj)
       .then((r) => r.json())
-      .then((listing) => {
-        addNewCategory(listing);
+      .then((cat) => {
+        addNewCategory(cat);
         navigate("/listings");
       });
   };
 
+  const addNewCategory = (cat) => {
+    setJobType([...cats, cat])
+  }
+
+
   return (
-    <div>
+    <>
       <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label>Add a new job category:</Form.Label>
@@ -46,20 +48,10 @@ function NewCategory({ cats }) {
             value={jobType}
             onChange={(e) => setJobType(e.target.value)}
             />
-          <Button>Add</Button>
+          <Button type="submit">Add</Button>
         </Form.Group>
     </Form>
-    </div>
-   
-    // <form onSumit={handleSubmit}>
-    //   <label htmlFor="jobtype">Job Type:</label>
-    //   <input 
-    //     id="jobtype"
-    //     type="text"
-    //     name="jobtype"
-    //     value={jobType}
-    //   />
-    // </form>
+    </>
   )
 }
 
