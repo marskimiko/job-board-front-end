@@ -37,12 +37,17 @@ function App() {
     fetch("http://localhost:9393/listings")
     .then((r) => r.json())
     .then((listings) => {
-      setListings(listings);
+      setListings(listings);   
     });
   }, []);
 
   const addNewCategory = (cat) => {
     setCats([...cats, cat])
+  }
+
+  const deleteCategory = (id) => {
+    const updatedCategory = cats.filter((cat) => cat.id !== id);
+    setCats(updatedCategory);
   }
 
   return (
@@ -69,6 +74,7 @@ function App() {
               cats={cats} 
               listings={listings} 
               setListings={setListings}
+              deleteCategory={deleteCategory}
             />} 
         />
         {/* <Route

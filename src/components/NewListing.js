@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-function NewListing({ cats, listings, setListings }) {
+function NewListing({ cats, listings, setListings, deleteCategory }) {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [user, setUser] = useState("");
@@ -59,12 +59,12 @@ function NewListing({ cats, listings, setListings }) {
     setListings([...listings, listing])
   }
 
-  const handleDelete = () => {
-    deleteListing(id);
-    fetch(`http://localhost:9393/listings/${id}`, {
-      method: 'DELETE',
-    });
-  };
+  // const handleDelete = () => {
+  //   deleteListing(id);
+  //   fetch(`http://localhost:9393/listings/${id}`, {
+  //     method: 'DELETE',
+  //   });
+  // };
 
   return (
     <div>
@@ -93,11 +93,13 @@ function NewListing({ cats, listings, setListings }) {
             onChange={(e) => setCat(e.target.value)}
           >
             <option value="none">Select a job category:</option>
+            <ul>
             {cats.map((cat) => (
-              <option key={cat.id} value={cat.id}>
-                {cat.job_type}
-              </option>
+              <li key={cat.id} value={cat.id}>
+                {cat.job_type}<button>Delete</button>
+              </li>
             ))}
+            </ul>
           </select>
         </label>  
         <button type="submit">Create Listing</button>

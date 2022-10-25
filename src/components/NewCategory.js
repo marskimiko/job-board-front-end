@@ -29,11 +29,6 @@ function NewCategory({ cats, addNewCategory }) {
       });
   };
 
-  // const addNewCategory = (cat) => {
-  //   setJobType([...cats, cat])
-  // }
-
-
   return (
     <>
       <Form onSubmit={handleSubmit}>
