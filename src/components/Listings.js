@@ -3,7 +3,7 @@ import Filter from "./Filter";
 import Listing from "./Listing";
 import NewCategory from './NewCategory'
 
-function Listings({ cats, setCats, listings, setListings }) {
+function Listings({ cats, setCats, listings, setListings, addNewCategory }) {
   const [filterBy, setFilterBy] = useState("")
   const [filteredListings, setFilteredListings] = useState(listings);
 
@@ -19,6 +19,8 @@ function Listings({ cats, setCats, listings, setListings }) {
       alignContent: "center"
     }
   }
+
+  console.log(cats)
 
 
   function onUpdateListing(updatedListing) {
@@ -58,7 +60,7 @@ function Listings({ cats, setCats, listings, setListings }) {
         filterBy={filterBy}
         setFilterBy={setFilterBy}
       />
-      <NewCategory cats={cats} />
+      <NewCategory cats={cats} addNewCategory={addNewCategory} />
       <div style={styles.main}>
       {filteredListings.map((listing) => 
         <Listing

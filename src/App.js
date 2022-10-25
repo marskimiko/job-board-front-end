@@ -41,6 +41,10 @@ function App() {
     });
   }, []);
 
+  const addNewCategory = (cat) => {
+    setCats([...cats, cat])
+  }
+
   return (
     <div className="App">
       <img src={logo} alt="Logo" witdth="100" height="100" padding="100"/>
@@ -55,6 +59,7 @@ function App() {
               setCats={setCats}
               listings={listings} 
               setListings={setListings}
+              addNewCategory={addNewCategory}
             />} 
         />
         <Route 

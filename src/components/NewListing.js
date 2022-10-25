@@ -24,6 +24,7 @@ function NewListing({ cats, listings, setListings }) {
       justifyContent: "center"
     }
   }
+  
 
 
   const newList = {
@@ -57,6 +58,13 @@ function NewListing({ cats, listings, setListings }) {
   const addNewListing = (listing) => {
     setListings([...listings, listing])
   }
+
+  const handleDelete = () => {
+    deleteListing(id);
+    fetch(`http://localhost:9393/listings/${id}`, {
+      method: 'DELETE',
+    });
+  };
 
   return (
     <div>

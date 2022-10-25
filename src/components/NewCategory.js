@@ -3,10 +3,9 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 
-function NewCategory({ cats }) { 
+function NewCategory({ cats, addNewCategory }) { 
   const [jobType, setJobType] = useState("");
 
-  let newCategory = {jobType}
 
   const configObj = {
     method: "POST",
@@ -14,7 +13,9 @@ function NewCategory({ cats }) {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(newCategory),
+    body: JSON.stringify({
+      job_type: jobType
+    }),
   };
 
 
@@ -28,9 +29,9 @@ function NewCategory({ cats }) {
       });
   };
 
-  const addNewCategory = (cat) => {
-    setJobType([...cats, cat])
-  }
+  // const addNewCategory = (cat) => {
+  //   setJobType([...cats, cat])
+  // }
 
 
   return (
