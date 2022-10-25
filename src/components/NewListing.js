@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-function NewListing({ cats, listings, setListings, deleteCategory }) {
+function NewListing({ cats, listings, setListings }) {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [user, setUser] = useState("");
@@ -93,13 +93,11 @@ function NewListing({ cats, listings, setListings, deleteCategory }) {
             onChange={(e) => setCat(e.target.value)}
           >
             <option value="none">Select a job category:</option>
-            <ul>
             {cats.map((cat) => (
-              <li key={cat.id} value={cat.id}>
-                {cat.job_type}<button>Delete</button>
-              </li>
+              <option key={cat.id} value={cat.id}>
+                {cat.job_type}
+              </option>
             ))}
-            </ul>
           </select>
         </label>  
         <button type="submit">Create Listing</button>

@@ -3,7 +3,7 @@ import EditListing from "./EditListing"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Card } from 'react-bootstrap';
 
-function Listing({ listing, onUpdateListing, deleteListing }) {
+function Listing({ listing, onUpdateListing, listings, setListings }) {
 
   const styles = {
     main: {
@@ -27,11 +27,18 @@ function Listing({ listing, onUpdateListing, deleteListing }) {
     onUpdateListing(updatedListing);
   }
 
+  // const deleteListing = (id) => {
+  //   const updatedListings = listings.filter((listing) => listing.id !== id);
+  //   setListings(updatedListings);
+  // }
+
   const handleDelete = () => {
-    deleteListing(id);
+    // deleteListing(id);
     fetch(`http://localhost:9393/listings/${id}`, {
       method: 'DELETE',
     });
+    const updatedListings = listings.filter((listing) => listing.id !== id);
+    setListings(updatedListings);
   };
 
   useEffect(() => {

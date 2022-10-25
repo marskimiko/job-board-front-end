@@ -45,11 +45,6 @@ function App() {
     setCats([...cats, cat])
   }
 
-  const deleteCategory = (id) => {
-    const updatedCategory = cats.filter((cat) => cat.id !== id);
-    setCats(updatedCategory);
-  }
-
   return (
     <div className="App">
       <img src={logo} alt="Logo" witdth="100" height="100" padding="100"/>
@@ -74,7 +69,6 @@ function App() {
               cats={cats} 
               listings={listings} 
               setListings={setListings}
-              deleteCategory={deleteCategory}
             />} 
         />
         {/* <Route

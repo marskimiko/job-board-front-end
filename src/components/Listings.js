@@ -34,10 +34,6 @@ function Listings({ cats, setCats, listings, setListings, addNewCategory }) {
     setListings(updatedListings);
   }
 
-  const deleteListing = (id) => {
-    const updatedListings = listings.filter((listing) => listing.id !== id);
-    setListings(updatedListings);
-  }
 
   // needs to happen on the backend not front end
   useEffect(() => {
@@ -66,8 +62,9 @@ function Listings({ cats, setCats, listings, setListings, addNewCategory }) {
         <Listing
           key={listing.id}
           listing={listing}
+          listings={listings}
+          setListings={setListings}
           onUpdateListing={onUpdateListing}
-          deleteListing={deleteListing}
         />
       )}
       </div>
