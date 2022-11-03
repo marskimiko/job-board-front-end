@@ -7,11 +7,8 @@ function Listing({ listing, onUpdateListing, listings, setListings }) {
 
   const styles = {
     main: {
-      // paddingTop: "100px",
-      // paddingBottom: "100px",
       display: "flex",
       width: "18rem",
-      // flexDirection: "row",
       flexWrap: "wrap",
       justifyContent: "center",
       alignItems: "center",
@@ -27,10 +24,6 @@ function Listing({ listing, onUpdateListing, listings, setListings }) {
     onUpdateListing(updatedListing);
   }
 
-  // const deleteListing = (id) => {
-  //   const updatedListings = listings.filter((listing) => listing.id !== id);
-  //   setListings(updatedListings);
-  // }
 
   const handleDelete = () => {
     // deleteListing(id);
@@ -52,6 +45,7 @@ function Listing({ listing, onUpdateListing, listings, setListings }) {
         <EditListing
           listing={listing}
           handleUpdateListing={handleUpdateListing}
+          setIsEdit={setIsEdit}
         />
       ) : (
           <Card.Body>
@@ -65,25 +59,9 @@ function Listing({ listing, onUpdateListing, listings, setListings }) {
             </Button>
             <Button onClick={handleDelete} variant="outline-secondary">🗑</Button>
           </Card.Body>
-
-        // <li style={{ listStyleType: "none" }}>
-        //   <div>
-        //     <strong>{title}</strong>
-        //     <p>{body}</p> 
-        //     {listing.cat && listing.cat.job_type? <p>Category: {listing.cat.job_type}</p>:<p>Category: other</p>}
-            // <Button 
-            //   onClick={() => setIsEdit((isEdit) => !isEdit)}
-            //   type="button" 
-            //   variant="outline-dark"
-            //   >Edit
-            // </Button>
-            // <Button onClick={handleDelete} variant="outline-dark">🗑</Button>
-        //   </div>
-        // </li>
       )}
     </Card>
   );
-
 }
 
 export default Listing;
