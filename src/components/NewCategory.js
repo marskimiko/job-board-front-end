@@ -22,7 +22,7 @@ function NewCategory({ cats, addNewCategory }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:9393/cats/new", configObj)
+    fetch("http://localhost:9393/cats", configObj)
       .then((r) => r.json())
       .then((cat) => {
         addNewCategory(cat);
